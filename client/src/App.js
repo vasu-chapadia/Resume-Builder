@@ -1,13 +1,25 @@
 import * as React from "react";
-import "./App.css";
-import Typography from "@mui/material/Typography";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import HomePage from "./pages/HomePage";
+import Navbar from "./components/Navbar";
+import Dashboard from "./pages/Dashboard";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 
 const App = () => {
   return (
-    <div className="App">
-      <Typography variant="h3">HI REACT APP</Typography>
-    </div>
+    <>
+      <Router>
+        <Navbar />
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+          </Routes>
+        </div>
+      </Router>
+    </>
   );
 };
 
